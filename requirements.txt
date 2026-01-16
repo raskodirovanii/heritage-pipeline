@@ -1,3 +1,6 @@
-duckdb
-pandas
-pyarrow
+pandas>=2.1
+duckdb>=1.0
+pyarrow>=14.0
+matplotlib>=3.8
+tqdm>=4.66
+pyspark>=3.5

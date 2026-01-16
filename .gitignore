@@ -1,5 +1,59 @@
-data/raw/*
-data/processed/*
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+ENV/
+
+# =====================
+# IDE
+# =====================
+.idea/
+.vscode/
+*.iml
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Jupyter
+# =====================
+.ipynb_checkpoints/
+
+# =====================
+# Spark / Hadoop
+# =====================
+spark-warehouse/
+metastore_db/
+derby.log
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# Data (RAW / CURATED / RESULTS)
+# =====================
+data/raw/
+data/raw_stream/
+data/output/
+data/results/
+data/metrics/
+
+# если вдруг сохраняются parquet/csv рядом
 *.parquet
 *.csv
-*.json
+
+# =====================
+# Streamlit / Dash
+# =====================
+.streamlit/

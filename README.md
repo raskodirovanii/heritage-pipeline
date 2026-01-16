@@ -1,45 +1,12 @@
-# Big Data Pipeline for Cultural Heritage of the Russian Federation
+# Конвейер Big Data для анализа цифрового культурного наследия РФ
 
-Проект реализует конвейер обработки больших данных для анализа цифрового культурного наследия РФ
-на основе Государственного каталога Музейного фонда Российской Федерации.
+Данные: Государственный каталог Музейного фонда РФ (Parquet, ~3 ГБ, десятки миллионов объектов).
 
-## Источник данных
-Официальный набор данных в формате Apache Parquet, опубликованный на портале hubofdata.ru.
+## Архитектура
+Raw Parquet → Ingest (проверка) → ETL (DuckDB) → Curated Parquet → Analytics (CSV + графики) → Benchmark
 
-Объём данных: ~3 ГБ  
-Количество объектов: более 30 млн
+## Скрипты
 
-## Архитектура конвейера
-Parquet → Ingest → Process (DuckDB) → Analyze → CSV / Analytics
-
-## Используемые технологии
-- Python 3.11
-- DuckDB
-- Apache Parquet
-- Pandas
-- Visual Studio Code
-
-## Этапы работы
-
-### 1. Ingest
-Проверка наличия и целостности исходного Parquet-файла.
-
-### 2. Process
-Обработка больших данных с использованием DuckDB:
-- выбор нужных колонок
-- работа с вложенными структурами
-- ограничение выборки
-
-### 3. Analyze
-Агрегация и анализ:
-- топ музеев
-- распределение по историческим периодам
-- типологии музейных объектов
-
-## Запуск проекта
-
+### 01_ingest_batch.py — проверка источника
 ```bash
-pip install -r requirements.txt
-python ingest.py
-python process.py
-python analyze.py
+python data/scripts/01_ingest_batch.py --input data/raw/data.parquet
